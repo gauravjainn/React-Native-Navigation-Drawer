@@ -8,6 +8,7 @@ import {
   ActivityIndicator,
   TextInput,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 import SwipeablePanel from 'rn-swipeable-panel';
 import {SocialIcon, List, ListItem} from 'react-native-elements';
@@ -131,12 +132,12 @@ export default class Screen1 extends Component {
     return (
       <View style={styles.MainContainer}>
         <View style={{flex: 1, flexDirection: 'row'}}>
-          <TextInput
+          {/* <TextInput
             placeholderTextColor="#7f8ec5"
             underlineColorAndroid="transparent"
             placeholder={'Enter here'}
             style={styles.input}
-          />
+          /> */}
 
           <SocialIcon
             //Social Icon using react-native-elements
@@ -153,6 +154,7 @@ export default class Screen1 extends Component {
         {/* <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text> */}
         <SwipeablePanel
+          fullWidth={false}
           isActive={this.state.swipeablePanelActive}
           onClose={() => this.closePanel()}>
           <View style={styles.bottomNavigationView}>
@@ -166,72 +168,50 @@ export default class Screen1 extends Component {
                 Share Using
               </Text>
               <View style={{flex: 1, flexDirection: 'row'}}>
-                <SocialIcon
-                  //Social Icon using react-native-elements
-                  type="twitter"
-                  onPress={() => {
-                    //Action to perform on press of Social Icon
-                  //  this.fetchData();
-                    // alert('twitter');
-                  }}
-                  //Type of Social Icon
-                />
-                <SocialIcon type="gitlab" 
-                  onPress={() => {
-                    //Action to perform on press of Social Icon
-                   // this.fetchData();
-                    // alert('twitter');
-                  }}
+                <TouchableOpacity
+                  style={styles.GooglePlusStyle}
+                  activeOpacity={0.5}>
+                  <Image
+                    source={require('../images/image1.png')}
+                    style={styles.ImageIconStyle}
                   />
-                <SocialIcon type="medium" />
-                <SocialIcon type="facebook" />
-                <SocialIcon type="instagram" />
+                  
+                  <Text style={styles.headline}> Login </Text>
+                </TouchableOpacity>
+                 <TouchableOpacity
+                  style={styles.GooglePlusStyle}
+                  activeOpacity={0.5}>
+                  <Image
+                    source={require('../images/image1.png')}
+                    style={styles.ImageIconStyle}
+                  />
+                  <Text style={styles.headline}> Login2 </Text>
+                </TouchableOpacity>
               </View>
-              <View style={{flex: 1, flexDirection: 'row'}}>
-                <SocialIcon type="facebook" />
-                <SocialIcon type="instagram" />
-                <SocialIcon type="gitlab" />
-                <SocialIcon type="twitter" />
-                <SocialIcon type="medium" />
+               <View style={{flex: 1, flexDirection: 'row'}}>
+                <TouchableOpacity
+                  style={styles.GooglePlusStyle}
+                  activeOpacity={0.5}>
+                  <Image
+                    source={require('../images/image1.png')}
+                    style={styles.ImageIconStyle}
+                  />
+                  
+                  <Text style={styles.headline}> Login </Text>
+                </TouchableOpacity>
+                 <TouchableOpacity
+                  style={styles.GooglePlusStyle}
+                  activeOpacity={0.5}>
+                  <Image
+                    source={require('../images/image1.png')}
+                    style={styles.ImageIconStyle}
+                  />
+                  <Text style={styles.headline}> Login2 </Text>
+                </TouchableOpacity>
               </View>
             </View>
           </View>
         </SwipeablePanel>
-       {/* <View style={styles.ListContainer}>    
-        <FlatList
-          data={this.state.data}
-          keyExtractor={item => item.id}
-          ListHeaderComponent={this.renderHeader}
-          ListFooterComponent={this.renderFooter}
-          renderItem={({item}) => {
-            const rating = item.rating ? item.rating : 'na';
-
-            return (
-              <View>
-                <ListItem
-                  roundAvatar
-                  title={`${item.name}` + ' (' + `${rating}` + ')'}
-                  subtitle={`${item.vicinity}`}
-                  avatar={{uri: item.icon}}
-                  containerStyle={{borderBottomWidth: 0}}
-                />
-                <View
-                  style={{
-                    height: 1,
-                    width: '86%',
-                    backgroundColor: '#CED0CE',
-                    marginLeft: '14%',
-                  }}
-                />
-              </View>
-            );
-          }}
-          onRefresh={this.handleRefresh}
-          refreshing={this.state.refreshing}
-          onEndReached={this.handleLoadMore}
-          onEndReachedThreshold={50}
-        />
-      </View> */}
       </View>
     );
   }
@@ -244,7 +224,7 @@ const styles = StyleSheet.create({
   bottomNavigationView: {
     backgroundColor: '#fff',
     width: '100%',
-    height: 250,
+    height: 400,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -258,6 +238,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: '#cccccc',
   },
+  
   SubmitButtonStyle: {
     marginTop: 20,
     width: 300,
@@ -267,7 +248,22 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: 'center',
   },
-   ListContainer: {
+  headline: {
+    textAlign: 'center', // <-- the magic
+    fontWeight: 'bold',
+    fontSize: 18,
+    marginTop: 0,
+    width: 200,
+    backgroundColor: 'yellow',
+  },
+  ListContainer: {
     height: '70%',
+  },
+   ImageIconStyle: {
+    height:50,
+    width:50,
+    alignSelf: 'center',
+      alignItems: 'center',
+    justifyContent:'center',
   },
 });
